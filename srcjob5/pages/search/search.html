@@ -1,0 +1,33 @@
+<!--
+  Generated template for the SearchPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-searchbar type="text" color="light" placeholder="Cari makan apa ?" 
+    clearInput autofocus (keyup)="search($event)">
+  </ion-searchbar>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let p of products" (click)="openDetail(p.id)">
+      <ion-thumbnail item-start>
+        <img *ngIf="p.image==null"
+     
+     src="https://ecommerce.jaroji.web.id/uploads/product/images/noimage.jpg" />
+      <img *ngIf="p.image!=null"
+     
+     src="https://ecommerce.jaroji.web.id/uploads/product/images/{{
+     p.image }}" />
+      </ion-thumbnail>
+      <h2>{{ p.name }}</h2>
+      <p>{{ p.category }}</p>
+      <p>{{ p.price | number : fractionSize}}</p>
+      </ion-item>
+
+  </ion-list>
+</ion-content>
