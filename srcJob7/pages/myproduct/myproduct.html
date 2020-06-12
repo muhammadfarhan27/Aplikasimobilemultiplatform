@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-title>My Product</ion-title>
+        </ion-col>
+        <ion-col col-2 text-right>
+          <button ion-button clear icon-only (click)="showInputForm()" style="padding: 0px !important">
+            <ion-icon name='add-circle' color="primary"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-row>
+    <ion-col class="ion-card" col-6 inset *ngFor="let p of products" style="padding: 0px !important">
+      <ion-card>
+
+        <img *ngIf="p.image==null" src="https://ecommerce.jaroji.web.id/uploads/product/images/no-image.jpg"/>
+
+        <img *ngIf="p.image!=null" src="https://ecommerce.jaroji.web.id/uploads/product/images/{{ p.image }}"/>
+
+        <ion-card-content>
+          <ion-card-title>
+            {{p.name.length > 20 ? p.name.substr(0,20)+'...': p.name}}
+          </ion-card-title>
+          <span class="kategori" color="primary">
+            {{ p.kategori.nama }}
+          </span>
+          <p>
+            Rp. {{ p.price }}
+          </p>
+        </ion-card-content>
+        <ion-row style="background-color: aliceblue;">
+          <ion-col col-6 text-center>
+            <button ion-button clear icon-only (click)="showUpdateForm(p.id)">
+              <ion-icon name='create' color="primary"></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col col-6 text-center>
+            <button ion-button clear icon-only (click)="showConfirm(p.id,p.name)">
+              <ion-icon name='trash' color="danger"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content>

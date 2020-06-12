@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Detail Product</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card style="padding: 0px !important;margin-top: 16px;">
+    <img style="height: auto; width: 100%; background-size: cover;" *ngIf="product.image==null" src="https://ecommerce.jaroji.web.id/uploads/product/images/no-image.jpg" />
+
+    <img style="height: auto; width: 100%; background-size: cover;" *ngIf="product.image!=null" src="https://ecommerce.jaroji.web.id/uploads/product/images/{{ product.image }}" />
+
+    <ion-card-content>
+      <ion-card-title>
+        <ion-label stacked>Nama Makanan </ion-label>
+        <h2 style="font-weight: bold;">{{ product.name }}</h2>
+      </ion-card-title>
+
+      <ion-row no-padding>
+        <ion-col>
+            <ion-label stacked>Kategori Makanan </ion-label>
+            <p >{{ product.categori_id }}</p>
+        </ion-col>
+        <ion-col>
+            <ion-label stacked>Harga Makanan </ion-label>
+            <p>Rp. {{ product.price }}</p>
+        </ion-col>
+      </ion-row>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>

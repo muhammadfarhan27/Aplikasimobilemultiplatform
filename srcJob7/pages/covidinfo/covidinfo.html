@@ -1,0 +1,120 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Covid-19 Info</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card>
+    <ion-card-header>
+      Kasus di Indonesia
+    </ion-card-header>
+
+    <p padding-left style="font-size: small; font-style: italic;">Last Update: {{ covidId.metadata}}</p>
+
+    <ion-card-content>
+    <ion-grid> 
+      <ion-row>
+      <ion-col>
+      <p>Terkonfirmasi</p> 
+        <ion-row>
+          <ion-col>
+            <div>
+              <ion-icon name='medical' color="secondary" item-start></ion-icon>
+              {{ covidId.confirmed | number : fractionSize }}
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-col>  
+     <ion-col col-4>
+      <p>Kasus Aktif</p>
+       <ion-row> 
+          <ion-col>
+            <div>
+              <ion-icon name='done-all' color="primary" item-start></ion-icon>
+              {{ covidId.activeCare | number : fractionSize }}
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+      <ion-col>
+        <p>Sembuh</p>
+         <ion-row> 
+            <ion-col>
+              <div>
+                <ion-icon name='heart' color="secondary" item-start></ion-icon>
+                {{ covidId.recovered | number : fractionSize }}
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-col>     
+        <ion-col>
+          <p>Meninggal</p>
+           <ion-row> 
+              <ion-col>
+                <div>
+                  <ion-icon name='sad' color="danger" item-start></ion-icon>
+                  {{ covidId.deaths | number : fractionSize}}
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-col>     
+        </ion-row>  
+      <!-- <ion-col ion-item col-3>
+        
+        
+        
+      </ion-col>
+
+      <ion-col ion-item>
+         :
+        <ion-icon name='medical' item-start></ion-icon>
+        {{ covidId.activeCare | number : fractionSize }}
+      </ion-col>
+      
+
+      <ion-col ion-item>
+        Sembuh :
+        <ion-icon name='medical' item-start></ion-icon>
+          <p> {{ covidId.recovered | number : fractionSize }}</p>
+      </ion-col>
+
+      <ion-col>
+        <ion-item>
+          <p>Meninggal : {{ covidId.deaths | number : fractionSize}}</p>
+        </ion-item>
+      </ion-col> -->
+    </ion-grid>   
+
+      
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      Kasus di Dunia
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-icon name='medical' color="secondary" item-start></ion-icon>
+          <p>Terkonfirmasi : {{ covidWorld.confirmed | number : fractionSize }}</p>
+        </ion-item>
+        <ion-item>
+          <ion-icon name='done-all' color="primary" item-start></ion-icon>
+          <p>Kasus Aktif : {{ covidWorld.activeCare | number : fractionSize }}</p>
+        </ion-item>
+        <ion-item>
+          <ion-icon name='heart' color="secondary" item-start></ion-icon>
+          <p>Sembuh : {{ covidWorld.recovered | number : fractionSize }}</p>
+        </ion-item>
+        <ion-item>
+          <ion-icon name='sad' color="danger" item-start></ion-icon>
+          <p>Meninggal : {{ covidWorld.deaths | number : fractionSize }}</p>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

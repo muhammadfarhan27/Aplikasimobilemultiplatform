@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{judul}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form #form="ngForm" (ngSubmit)="save(btnLabel)">
+    <ion-list>
+      <ion-item>
+        <ion-label stacked>Name</ion-label>
+        <ion-input type="hidden" name="id" [(ngModel)]="product.id"></ion-input>
+        <ion-input type="text" name="name" [(ngModel)]="product.name" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Price</ion-label>
+        <ion-input type="number" name="price" [(ngModel)]="product.price" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Category</ion-label>
+        <ion-select name="categori_id" [(ngModel)]="product.categori_id" required>
+          <ion-option *ngFor="let c of category" value="{{ c.id }}">{{c.nama}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>    
+        <p>Image</p>    
+        <img *ngIf="product.image" style="width: 100px" src="https://ecommerce.jaroji.web.id/uploads/product/images/{{ product.image }}"/>    
+        <p></p>    <button ion-button type="button" (click)="presentActionSheet()">Choose File</button> {{imageFileName}} 
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Actives</ion-label>
+        <ion-checkbox name="active" [(ngModel)]="product.active"></ion-checkbox>
+      </ion-item>
+    </ion-list>
+
+    <button ion-button block type="submit" [disabled]="form.invalid">{{btnLabel}}</button>
+  </form>
+</ion-content>

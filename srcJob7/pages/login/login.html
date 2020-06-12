@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Login Form</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row justify-content-center>
+      <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+        <div text-center>
+          <br>
+          <img style="width: 150px; height: 135px;" src="assets/imgs/ecommerce.png" />
+          <h4>E-commerce</h4>
+        </div>
+        <div padding>
+          <ion-item>
+            <ion-icon name="person" item-left></ion-icon>
+            <ion-input type="text" placholder="E-mail" [(ngModel)]="user.email"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="lock" item-left></ion-icon>
+            <ion-input type="password" placholder="Password" [(ngModel)]="user.password"></ion-input>
+          </ion-item>
+        </div>
+        <div padding>
+          <ion-grid>
+            <ion-row>
+              <ion-col center text-center>
+                <button ion-button color="success"(click)="showRegisterForm()" block>Sign Up</button>
+              </ion-col>
+              <ion-col center text-center>
+                <button ion-button color="lightText"(click)="login()" block>Login</button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

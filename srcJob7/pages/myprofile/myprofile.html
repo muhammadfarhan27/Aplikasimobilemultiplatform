@@ -1,0 +1,11 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>My Profile</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>{{user.name}}</h2>
+  <p>Email : <i>{{user.email}}</i></p>
+  <button ion-button size="large" type="button" (click)="logout()" block>Logout</button>
+</ion-content>

@@ -1,0 +1,36 @@
+page-myproduct {
+
+    ion-title{
+        padding-top: 10px;
+    }
+
+    ion-card{
+        width: auto !important;
+        display: inline-block;
+        border-radius: 10px !important;
+
+        img{
+            object-fit: none;
+            object-position: center;
+            height: 150px;
+        }
+    }
+
+    .card-title{
+        font-size: 1.4rem;
+        margin: 0px;
+        padding-bottom: 0px;
+        text-transform: capitalize;
+    }
+
+    .card-content{
+        padding: 0px;
+        padding-right: 8px;
+        padding-left: 8px;
+    }
+
+    .card.card-md{
+        margin: 4px;
+    }
+
+}
