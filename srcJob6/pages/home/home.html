@@ -1,0 +1,94 @@
+<ion-header no-border>
+  <ion-toolbar [class.toolbar--white]="opacity">
+    <ion-col col-2 text-center>
+      <button ion-button clear icon-only style="padding: 0px !important" (click)="openFavoritePage()">
+      <ion-icon name='heart' color="light" [class.icon-color]="iconColor"></ion-icon>
+    </button>
+    </ion-col>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-searchbar type="text" color="light" placeholder="Cari makan apa ?" clearInput (click)="openSearchPage()">
+          </ion-searchbar>
+        </ion-col>
+        <ion-col col-1 text-right>
+          <button ion-button clear icon-only>
+            <ion-icon name='mail' color="light" [class.icon-color]="iconColor">
+            </ion-icon>          
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button clear icon-only style="padding: 0px!important">
+          <ion-icon name='heart' color="light" [class.icon-color]="iconColor"></ion-icon>
+        </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen (ionScroll)="onPageScroll($event)" [class.transition]="transition">
+  <ion-col class="ion-card" col-6 inset *ngFor="let p of products; let i = index" style="padding: 0px !important;">
+    <ion-card>
+      <ion-col col-4 text-center>
+        <button ion-button clear icon-only (click)="addToFavorite(i)">
+          <ion-icon name='heart' color="secondary"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-card>
+  </ion-col>
+  <div class="cover" padding class="ion-content">
+    <ion-slides *ngIf="slider && slider.length" autoplay="5000" loop="true" speed="500" pager>
+      <ion-slide *ngFor="let slide of slider" class="slide-background" [ngStyle]="{ 'background' : 'url(' + slide.imageUrl + ')'}">
+      </ion-slide>
+    </ion-slides>
+    <p class="title-kategori">Kategori</p>
+         <ion-scroll scroolX="true" class="scrool">
+           <button class="btn-rounded" ion-button color="primary" *ngFor="let cat of category" (click)="showProductByCategory(cat.id)">{{ cat.nama }}</button>
+         </ion-scroll>
+         <ion-row>
+           <ion-col class="ion-card" col-6 inset *ngFor="let p of products" style="padding: 0px !important">
+            <ion-card>
+              <img *ngIf="p.image==null" src="https://ecommerce.jaroji.web.id/uploads/products/images/no-image.jpg"/>
+              <img *ngIf="p.image!=null" src="https://ecommerce.jaroji.web.id/uploads/product/images/{{p.image }}" />
+                <ion-card-content>
+                  <ion-card-title>
+                  {{ p.name.length > 20 ? p.name.substr(0,20) + '...' : p.name }}
+                  </ion-card-title>
+                   <span class="Kategori">
+                     {{ p.kategori.nama }}
+                   </span>
+                   <p>
+                     Rp. {{ p.price }}
+                   </p>
+                </ion-card-content>
+                <ion-row style="background-color: aliceblue;">
+                 <ion-col col-4 text-center>
+                   <button ion-button clear icon-only>
+                     <ion-icon name='search' color="primary"></ion-icon>
+                   </button>
+                 </ion-col>
+                 <ion-col col-4 text-center>
+                   <button ion-button clear icon-only>
+                     <ion-icon name='basket' color="primary"></ion-icon>
+                   </button>
+                 </ion-col>
+                 <ion-col col-4 text-center>
+                   <button ion-button clear icon-only>
+                     <ion-icon name='heart' color="secondary"></ion-icon>
+                   </button>
+                 </ion-col>
+                </ion-row>
+            </ion-card>
+          </ion-col>
+         </ion-row>
+
+         <ion-infinite-scroll (ionInfinite)="loadMore($event">
+            <ion-infinite-scroll-content></ion-infinite-scroll-content>
+         </ion-infinite-scroll>
+
+    <h3>Selamat datang di e-commerce</h3>
+    <h2>{{user.name}}</h2>
+    <p>Email : <i>{{user.email}}</i></p>
+    <button ion-button size="large" type="button" (click)="logout()" block>Logout</button>
+  </div>
+</ion-content>
