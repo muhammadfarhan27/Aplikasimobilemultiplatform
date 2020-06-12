@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+    </button> 
+    <ion-title>About Developer</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item class="profile-item">
+    <div class="profile-picture big-profile-picture">
+      <img src="../../assets/imgs/avatar-finn.png"/>
+    </div>
+    <h2 class="profile-name dark">{{model.username}}</h2>
+    <div class="profile-info">{{model.position}}</div>
+  </ion-item>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Username</ion-label>
+      <ion-input type="text" value="{{model.username}}"
+[(ngModel)]="model.username"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password" value="{{model.password}}"
+[(ngModel)]="model.password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label floating>Email</ion-label>
+        <ion-input type="email" value="{{model.email}}"
+[(ngModel)]="model.email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Phone</ion-label>
+      <ion-input type="number" value="{{model.phone}}"
+[(ngModel)]="model.phone"></ion-input>
+  </ion-item>
+
+  <ion-item>
+      <ion-label floating>Affiliation</ion-label>
+      <ion-input type="text" value="{{model.affiliation}}"
+[(ngModel)]="model.affiliation"></ion-input>
+  </ion-item>
+
+  <ion-item>
+      <ion-label floating>Position</ion-label>
+      <ion-input type="text" value="{{model.position}}"
+[(ngModel)]="model.position"></ion-input>
+  </ion-item>
+</ion-list>
+<button ion-button color="primary" block
+(click)="updateProfile()">Update Profile</button>
+</ion-content>

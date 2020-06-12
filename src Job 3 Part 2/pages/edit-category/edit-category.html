@@ -1,0 +1,18 @@
+<ion-header>   
+  <ion-navbar>     
+    <ion-title>{{judul}}</ion-title>   
+  </ion-navbar> 
+</ion-header> 
+ 
+<ion-content padding> 
+ 
+    <ion-list>       
+      <ion-item>         
+        <ion-label stacked>Name</ion-label>         
+        <ion-input type="text" name="name" [(ngModel)]="category.name"></ion-input>       
+      </ion-item>     
+    </ion-list> 
+ 
+    <button ion-button block (click)="save()">Save</button> 
+ 
+</ion-content>

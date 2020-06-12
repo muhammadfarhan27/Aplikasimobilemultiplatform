@@ -1,0 +1,41 @@
+<ion-header>   
+  <ion-navbar>     
+    <button ion-button menuToggle>         
+      <ion-icon name="menu"></ion-icon>     
+    </button>     
+    <ion-title>Manage Category</ion-title>   
+  </ion-navbar> 
+</ion-header> 
+ 
+<ion-content padding>   
+  <ion-list>     
+    <ion-item-sliding *ngFor="let category of categories">       
+      <button ion-item (click)="editCategory(category.id)">         
+        <h2><b><i>id : {{ category.id }}</i></b></h2>         
+        <h1>{{ category.name }}</h1>       
+      </button> 
+ 
+      <ion-item-options side="right">         
+        <button ion-button color="danger" (click)="removeCategory(category)">           
+          <ion-icon name="trash"></ion-icon>           
+          Delete         
+        </button>       
+      </ion-item-options>     
+    </ion-item-sliding>   
+  </ion-list> 
+ 
+  <ion-fab right bottom padding>     
+    <button ion-fab color="light" (click)="addCategory()">       
+      <ion-icon name="add"></ion-icon>     
+    </button>
+  </ion-fab> 
+</ion-content> 
+<ion-footer>   
+  <ion-toolbar [color]="isAndroid ? 'royal' : 'light'" class="page-home">     
+    <ion-list>       
+      <ion-item no-lines>         
+        <ion-label>Login as : <b>{{userAccount.username}}</b></ion-label>       
+      </ion-item>     
+    </ion-list>   
+  </ion-toolbar> 
+</ion-footer>

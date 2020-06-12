@@ -1,0 +1,33 @@
+<ion-header>   
+  <ion-navbar>     
+    <ion-title>{{judul}}</ion-title>   
+  </ion-navbar> 
+</ion-header> 
+ 
+<ion-content padding>     
+  <ion-list>         
+    <ion-item>           
+      <ion-label stacked>Name</ion-label>           
+      <ion-input type="text" name="name" [(ngModel)]="model.name"></ion-input>         
+    </ion-item>              
+    <ion-item>           
+      <ion-label stacked>Price</ion-label>           
+      <ion-input type="number" name="price" [(ngModel)]="model.price"></ion-input>         
+    </ion-item>              
+    <ion-item>           
+      <ion-label stacked>Due Date</ion-label>           
+      <ion-datetime displayFormat="DD/MM/YYYY" name="duedate" min="2017" max="2020-12-31" [(ngModel)]="model.duedate"></ion-datetime>         
+    </ion-item>              
+    <ion-item>           
+      <ion-label stacked>Category</ion-label>           
+      <ion-select name="category_id" [(ngModel)]="model.category_id">             
+        <ion-option *ngFor="let category of categories" value="{{ category.id }}">{{category.name}}</ion-option>           
+      </ion-select>         
+    </ion-item>              
+    <ion-item>           
+      <ion-label>Actives</ion-label>           
+      <ion-checkbox name="active"[(ngModel)]="model.active"></ion-checkbox>         
+    </ion-item>       
+  </ion-list>            
+  <button ion-button block (click)="save()">Save</button> 
+</ion-content>
