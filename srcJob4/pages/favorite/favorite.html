@@ -1,0 +1,48 @@
+<!--
+  Generated template for the FavoritePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Favorite Products</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-searchbar (ionInput)="filterFavoriteProducts($event)"
+[(ngModel)]="searchText"></ion-searchbar>
+ <ion-list>
+    <ion-item-sliding *ngFor="let product of products">
+      <button ion-item>
+        <h1>{{ product.name }}</h1>
+        <h2>{{ product.category_name }}</h2>
+        <h2>{{ product.duedate | date:'dd/MM/yyyy' }}</h2>
+        <h2 class="price">{{ product.price |
+          currency:'USD':true }}</h2>
+           </button>
+           <ion-item-options side="right">
+           <button ion-button color="danger"
+          (click)="removeFavoriteProduct(product)">
+           <ion-icon name="trash"></ion-icon>
+           Delete
+           </button>
+           </ion-item-options>
+           </ion-item-sliding>
+           </ion-list>
+  </ion-content>
+  <ion-footer>
+           <ion-toolbar [color]="isAndroid ? 'royal' : 'light'"
+          class="page-home">
+           <ion-list>
+           <ion-item no-lines>
+           <ion-label>Login as :
+          <b>{{userAccount.username}}</b></ion-label>
+           </ion-item>
+           </ion-list>
+           </ion-toolbar>
+ </ion-footer>

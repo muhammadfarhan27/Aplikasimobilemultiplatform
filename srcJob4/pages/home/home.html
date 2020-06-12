@@ -1,0 +1,42 @@
+<ion-header>
+      <ion-navbar>
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+            <ion-title>Home</ion-title>
+      </ion-navbar>
+  </ion-header>
+      <ion-content padding>
+                <ion-searchbar (ionInput)="filterProducts($event)"
+                    [(ngModel)]="searchText"></ion-searchbar>
+  <ion-list>
+   <ion-item-sliding *ngFor="let product of products">
+   <button ion-item (click)="editProduct(product.id)">
+   <h1>{{ product.name }}</h1>
+   <h2>{{ product.category_name }}</h2>
+ <h2>{{ product.duedate | date:'dd/MM/yyyy' }}</h2>
+ <h2 class="price">{{ product.price |
+currency:'USD':true }}</h2>
+ </button>
+ 
+ <ion-item-options side="right">
+  <button ion-button color="secondary"
+ (click)="addToFavorite(product)">
+  <ion-icon name="heart"></ion-icon>
+  Favorite
+  </button>
+
+ <ion-item-options side="right">
+ <button ion-button color="danger"
+(click)="removeProduct(product)">
+ <ion-icon name="trash"></ion-icon>
+ Delete
+ </button>
+ </ion-item-options>
+ </ion-item-sliding>
+</ion-list>
+<ion-fab right bottom>
+ <button ion-fab color="light" (click)="addProduct()">
+ <ion-icon name="add"></ion-icon>
+ </button>
+</ion-fab>
